@@ -2,5 +2,5 @@
 
 Projeto em JS utilizado bibliotecas diversas
 
-React
+React;
 Jquery
