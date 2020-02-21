@@ -16,19 +16,20 @@
 </head>
 <body class="bg-secondary">
     <div class="container">
+        <h1 class="text-center">Busca Localidade por CEP</h1>   
         <div class="row justify-content-md-center ">
-                <div class="col-md-6">
-                    <input type="number" 
-                           id="cep" 
-                           class="form-control">
-                </div>
-                <input  type="button" 
-                        name="envar" 
-                        id="btnEnviar"
-                        onClick="enviar()" 
-                        value="enviar" 
-                        class="btn btn-primary"
-                />      
+            <div class="col-md-6">
+                <input type="number" 
+                        id="cep" 
+                        class="form-control">
+            </div>
+            <input  type="button" 
+                    name="envar" 
+                    id="btnEnviar"
+                    onClick="enviar()" 
+                    value="enviar" 
+                    class="btn btn-primary"
+            />      
         </div>
         <br>
         <div class="row">
@@ -60,17 +61,14 @@
                          class="form-control"
                   />       
             </div>
-        </div>
-                <!-- <div class="col-md-6">
-                    <select name="UF" id="uf">
-                        <option></option>
-                    </select>
-                </div> -->
-        </div>
+        </div>                
     </div>
+    
     <hr>
-    <div class="row" id="mensagem">
-        <div class="col-2 m-2">
+    <h1 class="text-center">Busca Regiões</h1>   
+
+    <div class="row justify-content-md-center ">
+        <div class="col-3 m-2">
             <label>Regiões</label>
             <select onChange="regioes()"
                     class="form-control"
@@ -78,7 +76,7 @@
             </select>
         </div>
 
-        <div class="col-2 m-2">
+        <div class="col-3 m-2">
             <label>Estados</label>
             <select onChange="estado()"
                     class="form-control"
@@ -86,20 +84,40 @@
             </select>
         </div>
 
-        <div class="col-2 m-2">
-            <label>municipio</label>
+        <div class="col-3 m-2">
+            <label>Municipio</label>
             <select onChange="municipio()"
                     class="form-control"
                     id="selectMunicipios">
             </select>
         </div>
+    </div>
+    <hr>
+    <h1 class="text-center">Buscar Nome</h1>   
+    <div class="row">
+            <div class="row align-items-center">
+                <div class="col align-self-center">
+                    <input type="text" 
+                                id="Nome" 
+                                class="form-control">                
+                    <input  type="button" 
+                            name="envar" 
+                            id="btnEnviarNome"
+                            onClick="buscaNome()" 
+                            value="enviar" 
+                            class="btn btn-primary"
+                    /> 
 
-        <div class="col-2 m-2">
-            <label>subdistritos</label>
-            <select onChange="subdistritos()"
-                    class="form-control"
-                    id="selectSubdistritos">
-            </select>
+                    <div class="col" id="SEXO" style="display: none;">
+                        <input type="radio" value="Feminino" name="sexo">Feminino
+                        <input type="radio" value="Masculino" name="sexo">Masculino
+                    </div>
+
+                    
+                    <p id="periodo"></p>
+
+                </div>
+            </div>
         </div>
     </div>
     </div>
