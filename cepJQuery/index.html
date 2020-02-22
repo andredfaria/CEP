@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEP</title>
+    <!-- https://servicodados.ibge.gov.br/api/docs -->
 </head>
 <body class="bg-secondary">
     <div class="container">
@@ -41,6 +42,7 @@
             </div>
             <div class="col-3">
                   <input type="text"
+
                          id="bairro"
                          class="form-control"
                          placeholder="Bairro"
@@ -87,7 +89,7 @@
         </div>
 
         <div class="col-2 m-2">
-            <label>municipio</label>
+            <label>Município</label>
             <select onChange="municipio()"
                     class="form-control"
                     id="selectMunicipios">
@@ -95,7 +97,7 @@
         </div>
 
         <div class="col-2 m-2">
-            <label>subdistritos</label>
+            <label>Subdistritos</label>
             <select onChange="subdistritos()"
                     class="form-control"
                     id="selectSubdistritos">
