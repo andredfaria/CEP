@@ -86,8 +86,6 @@
             </select>
         </div>
 
-        <div class="col-2 m-2">
-            <label>Município</label>
         <div class="col-3 m-2">
             <label>Municipio</label>
             <select onChange="municipio()"
@@ -98,33 +96,38 @@
     </div>
     <hr>
     <h1 class="text-center">Buscar Nome</h1>   
-    <div class="row">
-            <div class="row align-items-center">
-                <div class="col align-self-center">
-                    <input type="text" 
-                                id="Nome" 
-                                class="form-control">                
-                    <input  type="button" 
-                            name="envar" 
-                            id="btnEnviarNome"
-                            onClick="buscaNome()" 
-                            value="enviar" 
-                            class="btn btn-primary"
+    <div class="row align-items-center">
+        <div class="col-10 md-3 align-self-center">
+            <input type="text" 
+                        id="Nome" 
+                        class="form-control">                
+        </div>
+        <div class="col-2">
+            <input  type="button" 
+                    name="envar" 
+                    id="btnEnviarNome"
+                    onClick="buscaNome()" 
+                    value="enviar" 
+                    class="btn btn-primary"
                     /> 
-        <div class="col-2 m-2">
-            <label>Subdistritos</label>
-            <select onChange="subdistritos()"
-                    class="form-control"
-                    id="selectSubdistritos">
-            </select>
+        </div>
+    </div>
+    <div class="row">
+                    <div class="col-2 m-2">
+                        <!-- <label>Subdistritos</label>
+                        <select onChange="subdistritos()"
+                                class="form-control"
+                                id="selectSubdistritos">
+                        </select> -->
+                    </div>
                     <div class="col" id="SEXO" style="display: none;">
                         <input type="radio" value="Feminino" name="sexo">Feminino
                         <input type="radio" value="Masculino" name="sexo">Masculino
                     </div>
-
-                    
-                    <p id="periodo"></p>
-
+                    <div>
+                        <h1>Censo</h1>
+                        <div id="retorno"></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -75,10 +75,16 @@ function buscaNome(){
 
     $.get("https://servicodados.ibge.gov.br/api/v2/censos/nomes/"+nome, function(resultado){
             console.log(resultado);
+            var data;
             $("#SEXO").removeAttr( 'style' );
-            $('#periodo').iner(resultado);
+            $('#retorno').append('<p>'+resultado[0].res.map(function(a){
+                 data = a.periodo.split('[');
+                 return 'Em '+data+'tinha '+a.frequencia+' de '+resultado[0].nome+' no Brasil\n';
+            })+'</p>');
     });
 }
+
+
 
 
 
