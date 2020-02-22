@@ -70,3 +70,15 @@ function municipio(){
     });
 }
 
+function buscaNome(){
+    var nome = $('#Nome').val();
+
+    $.get("https://servicodados.ibge.gov.br/api/v2/censos/nomes/"+nome, function(resultado){
+            console.log(resultado);
+            $("#SEXO").removeAttr( 'style' );
+            $('#periodo').iner(resultado);
+    });
+}
+
+
+
