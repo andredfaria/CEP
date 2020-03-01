@@ -70,21 +70,30 @@ function municipio(){
     });
 }
 
+function selecionaAno(){
+    var select;
+    select = $('#selectNome').val();
+    console.log('teste');
+}
+
 function buscaNome(){
     var nome = $('#Nome').val();
-
+    
     $.get("https://servicodados.ibge.gov.br/api/v2/censos/nomes/"+nome, function(resultado){
             console.log(resultado);
             var data;
             $("#SEXO").removeAttr( 'style' );
-            $('#retorno').append('<p>'+resultado[0].res.map(function(a){
-                 data = a.periodo.split('[');
-                 return 'Em '+data+'tinha '+a.frequencia+' de '+resultado[0].nome+' no Brasil\n';
-            })+'</p>');
-    });
+            
+            resultado[0].res.map(function(a,i){
+                $('#selectNome').append($('<option>', {
+                    value: i,
+                    text: a.periodo.replace('[', "").replace('[', "")  
+                }));
+                $('#qtdText').append($('<option>', {
+                    value: i,
+                    text: a.frequencia  
+                }));
+            });
+
+        });
 }
-
-
-
-
-

@@ -81,7 +81,7 @@
         <div class="col-3 m-2">
             <label>Estados</label>
             <select onChange="estado()"
-                    class="form-control"
+                    class="form-control"    
                     id="selectEstados">
             </select>
         </div>
@@ -96,42 +96,44 @@
     </div>
     <hr>
     <h1 class="text-center">Buscar Nome</h1>   
-    <div class="row align-items-center">
-        <div class="col-10 md-3 align-self-center">
-            <input type="text" 
-                        id="Nome" 
-                        class="form-control">                
+    <div class="row justify-content-md-center ">
+        <div class="col-3 m-2">
+            <label>Nome</label>
+            <input  type="text"
+                    class="form-control"
+                    id="Nome" />
         </div>
-        <div class="col-2">
-            <input  type="button" 
+        <div class="col-3 m-2">
+            <input  type="button"
+                    onChange="municipio()"
                     name="envar" 
                     id="btnEnviarNome"
                     onClick="buscaNome()" 
                     value="enviar" 
-                    class="btn btn-primary"
-                    /> 
+                    class="btn btn-primary"       
+            >
         </div>
     </div>
     <div class="row">
-                    <div class="col-2 m-2">
-                        <!-- <label>Subdistritos</label>
-                        <select onChange="subdistritos()"
-                                class="form-control"
-                                id="selectSubdistritos">
-                        </select> -->
-                    </div>
-                    <div class="col" id="SEXO" style="display: none;">
-                        <input type="radio" value="Feminino" name="sexo">Feminino
-                        <input type="radio" value="Masculino" name="sexo">Masculino
-                    </div>
-                    <div>
-                        <h1>Censo</h1>
-                        <div id="retorno"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-3 m-2"  class="form-control">
+            <label>Anos</label>
+            <select id="selectNome"
+                    onChange="selecionaAno()"
+                    class="form-control">
+                
+            </select>
         </div>
-    </div>
-    </div>
+        <div class="col-3 m-2"  class="form-control">
+            <label>Quantidades</label>
+            <select id="qtdText"
+                    class="form-control">
+            </select>
+        </div>
+        <div class="col-3 m-2"  class="form-control" id="SEXO" style="display: none;">
+            <label>Sexo</label>
+            <input type="radio" value="Feminino" name="sexo">Feminino
+            <input type="radio" value="Masculino" name="sexo">Masculino
+        </div>
+    </div> 
 </body>
 </html>
