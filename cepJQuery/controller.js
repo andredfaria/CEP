@@ -25,6 +25,7 @@ function enviar(){
           $("#rua").val(resultado.logradouro);
           $("#bairro").val(resultado.bairro);
           $("#estado").val(resultado.uf);
+          $("#texareaCEP").val(resultado.logradouro +", "+ resultado.bairro +", "+ resultado.uf);
     });
 };
 
@@ -34,12 +35,13 @@ function regioes(){
 
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/regioes/"+macrorregiao+"/estados", function(resultado){
         resultado.forEach(element => {    
-            console.log(element);
             $('#selectEstados').append($('<option>', {
                 value: element.id,
                 text: element.nome
             }));
         });
+
+        console.log($('#selectRegioes').children("option:selected"));
     });
 }
 
