@@ -5,7 +5,6 @@ Projeto em JS utilizado bibliotecas diversas, com a inteção de aprender e dese
 
 
 #### Linguagens ###
-React;
-Jquery;
+JS;
 HTML;
 CSS;
