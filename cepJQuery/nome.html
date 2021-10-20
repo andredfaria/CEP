@@ -28,21 +28,22 @@
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">CEP</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-          
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="cep.html">Busca CEP <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="regioes.html">Regiões</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="nome.html">Nome</a>
-                </li>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="cep.html">Busca CEP <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regioes.html">Regiões</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="nome.html">Nome</a>
+                    </li>
             </div>
         </nav>
         <br>
@@ -52,25 +53,19 @@
         <div class="row justify-content-md-center ">
             <div class="col-3 m-2">
                 <label>Nome</label>
-                <input type="text" 
-                       class="form-control" 
-                       id="Nome" />
+                <input type="text" class="form-control" id="Nome" />
             </div>
-            <input type="button" 
-                    onChange="municipio()" 
-                    name="envar" 
-                    id="btnEnviarNome" 
-                    onClick="buscaNome()"
-                    value="enviar" 
-                    class="btn btn-primary">
+            <div class="col-3 m-2">
+                <label></label>
+                <input type="button" onChange="municipio()" name="envar" id="btnEnviarNome" onClick="buscaNome()"
+                    value="Buscar" class="btn btn-primary">
+            </div>
         </div>
         <br>
         <div class="row justify-content-md-center ">
             <div class="col-3 m-2" class="form-control">
                 <label>Anos</label>
-                <select id="selectNome"
-                        onChange="selecionaAno()" 
-                        class="form-control">
+                <select id="selectNome" onChange="selecionaAno()" class="form-control">
 
                 </select>
             </div>
@@ -84,29 +79,7 @@
                 <input type="radio" value="Feminino" name="sexo">Feminino
                 <input type="radio" value="Masculino" name="sexo">Masculino
             </div>
-            </div>
-            <br>
-            <div class="row justify-content-md-center mt-10">
-                <div class="col-12">
-                    <textarea name="texarea" 
-                            class="form-control"
-                            id="textareaNome" 
-                            cols="30" 
-                            rows="10"></textarea>
-                </div>
-                        <br>
-            <div class="row mt-10">
-                <div class="col float-right">
-                    <button class="btn btn-info">
-                        Voltar
-                    </button>
-                </div>
-                <div class="col-1 float-right">
-                    <button class="btn btn-success">
-                        Enviar
-                    </button>
-                </div>
-            </div>
         </div>
+        <br>
     </div>
 </body>
