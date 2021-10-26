@@ -1,12 +1,123 @@
-$(function(){
-    // $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/", function(resultado){
-    //     resultado.forEach(element => {     
-    //         $('#selectEstados').append($('<option>', {
-    //             value: element.id,
-    //             text: element.nome
-    //         }));
-    //     });
-    // });
+function map_interative_init() {
+        
+    google.charts.load('current', { 'packages': ['geochart'] });
+    google.charts.setOnLoadCallback(drawRegionsMap);
+
+    dicEstados = {
+        "21" :"Maranhão",
+        "22" :"Piauí",
+        "23" :"Ceará",
+        "24" :"Rio Grande do Norte",
+        "25" :"Paraíba",
+        "26" :"Pernambuco",
+        "27" :"Alagoas",
+        "28" :"Sergipe",
+        "29" :"Bahia",
+        '1': 'Acre',
+        '3': 'Amapa',
+        '4': 'Amazonas',
+        '7': 'Distrito Federal',
+        '32': 'Espirito Santo',
+        '9': 'Goias',
+        '11': 'Mato Grosso',
+        '12': 'Mato Grosso do Sul',
+        '31': 'Minas Gerais',
+        '14': 'Para',
+        '16': 'Parana',
+        '33': 'Rio de Janeiro',
+        '21': 'Rio Grande do Sul',
+        '22': 'Rondonia',
+        '23': 'Roraima',
+        '24': 'Santa Catarina',
+        '35': 'Sao Paulo',
+        '27': 'Tocantins'
+    }
+
+    var ultimoEstadoSelecionado = '';
+
+
+    function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+            ["Country"],
+            ["Stage"],
+            ["City"],
+            ["Bolivia"],
+            ["Argentina"],
+            ["Chine"],
+            ["Equador"],
+            ["Venezuela"],
+            ["Uruguai"],
+            ["Paraguai"],
+            ["Guiana"],
+            ["Suriname"],
+            ["Peru"],
+            ["Colombia"],
+            ["Brazil"],
+            ["Rondônia"],
+            ["Acre"],
+            ["Amazonas"],
+            ["Roraima"],
+            ["Pará"],
+            ["Amapá"],
+            ["Tocantins"],
+            ["Maranhão"],
+            ["Piauí"],
+            ["Ceará"],
+            ["Rio Grande do Norte"],
+            ["Paraíba"],
+            ["Pernambuco"],
+            ["Alagoas"],
+            ["Sergipe"],
+            ["Bahia"],
+            ["Minas Gerais"],
+            ["Espírito Santo"],
+            ["Rio de Janeiro"],
+            ["São Paulo"],
+            ["Paraná"],
+            ["Santa Catarina"],
+            ["Rio Grande do Sul"],
+            ["Mato Grosso do Sul"],
+            ["Mato Grosso"],
+            ["Goiás"],
+            ["Distrito Federal"]
+        ]);
+
+        var options = {
+            region: 'BR',
+            resolution: 'provinces',
+            datalessRegionColor: 'white',
+            defaultColor: '#F1F2F3',
+            enableRegionInteractivity: true
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        function myClickHandler() {
+            var selection = chart.getSelection();
+            $("#selectEstados").val(selection[0].row);
+            getState(selection[0].row)
+        }
+
+        google.visualization.events.addListener(chart, 'select', myClickHandler);
+
+        chart.draw(data, options);
+    }
+
+}
+
+$(function () {
+    map_interative_init();
+
+    $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/", function(resultado){
+        resultado.forEach(element => {
+            $('#selectEstados').append($('<option>', {
+                value: element.id,
+                text: element.nome
+            }));
+        });
+    });
+
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/regioes", function(resultado){
         resultado.forEach(element => {     
             $('#selectRegioes').append($('<option>', {
@@ -15,6 +126,9 @@ $(function(){
             }));
         });
     });
+
+    $('#selectRegioes').val(null);
+    $('#selectEstados').val(null);
 });
 
 function enviar(){
@@ -45,12 +159,15 @@ function regioes(){
     });
 }
 
-function estado(){
+function getState(id) {
     var estado = $('#selectEstados').children("option:selected").val();
+    
+    if (id)
+        estado = id;
 
+    $('#selectMunicipios').empty()
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+estado+"/municipios", function(resultado){
-        resultado.forEach(element => {    
-            console.log(element);
+        resultado.forEach(element => {
             $('#selectMunicipios').append($('<option>', {
                 value: element.id,
                 text: element.nome
@@ -59,11 +176,11 @@ function estado(){
     });
 }
 
-function municipio(){
+function getCounty(){
     var municipio = $('#selectMunicipios').children("option:selected").val();
 
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/municipios/"+municipio+"/subdistritos", function(resultado){
-        resultado.forEach(element => {     
+        resultado.forEach(element => {
             $('#selecSubdistritos').append($('<option>', {
                 value: element.sigla,
                 text: element.nome
